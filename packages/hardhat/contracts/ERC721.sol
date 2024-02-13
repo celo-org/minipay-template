@@ -55,4 +55,29 @@ contract MiniPay is
     ) public view override(ERC721, ERC721URIStorage) returns (bool) {
         return super.supportsInterface(interfaceId);
     }
+
+    function getNFTsByAddress(
+        address owner
+    ) public view returns (uint256[] memory) {
+        uint256 totalNFTs = _nextTokenId; // Assuming _nextTokenId reflects totalSupply
+        uint256[] memory ownedTokenIds = new uint256[](totalNFTs);
+        uint256 currentIndex = 0;
+
+        for (uint256 i = 0; i < totalNFTs; i++) {
+            try ERC721(address(this)).ownerOf(i) returns (address tokenOwner) {
+                if (tokenOwner == owner) {
+                    ownedTokenIds[currentIndex++] = i;
+                }
+            } catch Error(string memory /*reason*/) {
+                // Token does not exist or lookup failed
+                break; // Optimization: Stop checking at non-existent tokens
+            }
+        }
+
+        // Resize the array to return only owned tokens
+        assembly {
+            mstore(ownedTokenIds, currentIndex)
+        }
+        return ownedTokenIds;
+    }
 }
