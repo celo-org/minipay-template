@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import PrimaryButton from "@/components/Button";
 import { useWeb3 } from "@/contexts/useWeb3";
 import Image from "next/image";
@@ -19,12 +20,18 @@ export default function Home() {
     const [tx, setTx] = useState<any>(undefined);
 
     useEffect(() => {
-        getUserAddress().then(async () => {
+        getUserAddress()
+    }, []);
+
+    useEffect(() => {
+        const getData = async () => {
             const tokenURIs = await getNFTs();
             setUserOwnedNFTs(tokenURIs);
-        });
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+        }
+        if(address) {
+            getData();
+        }
+    }, [address, ]);
 
     async function sendingCUSD() {
         if (address) {
@@ -67,9 +74,17 @@ export default function Home() {
 
     return (
         <div className="flex flex-col justify-center items-center">
+        {!address && (
             <div className="h1">
-                There you go... a canvas for your next Minipay project!
+                Please install Metamask and connect.
             </div>
+        )} 
+        {address && (
+            <div className="h1">
+            There you go... a canvas for your next Minipay project!
+        </div>
+        )}
+            
             {address && (
                 <>
                     <div className="h2 text-center">
