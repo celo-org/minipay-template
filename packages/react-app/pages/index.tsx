@@ -20,18 +20,18 @@ export default function Home() {
     const [tx, setTx] = useState<any>(undefined);
 
     useEffect(() => {
-        getUserAddress()
+        getUserAddress();
     }, []);
 
     useEffect(() => {
         const getData = async () => {
             const tokenURIs = await getNFTs();
             setUserOwnedNFTs(tokenURIs);
-        }
-        if(address) {
+        };
+        if (address) {
             getData();
         }
-    }, [address, ]);
+    }, [address]);
 
     async function sendingCUSD() {
         if (address) {
@@ -74,17 +74,15 @@ export default function Home() {
 
     return (
         <div className="flex flex-col justify-center items-center">
-        {!address && (
-            <div className="h1">
-                Please install Metamask and connect.
-            </div>
-        )} 
-        {address && (
-            <div className="h1">
-            There you go... a canvas for your next Minipay project!
-        </div>
-        )}
-            
+            {!address && (
+                <div className="h1">Please install Metamask and connect.</div>
+            )}
+            {address && (
+                <div className="h1">
+                    There you go... a canvas for your next Minipay project!
+                </div>
+            )}
+
             {address && (
                 <>
                     <div className="h2 text-center">
@@ -93,11 +91,12 @@ export default function Home() {
                     </div>
                     {tx && (
                         <p className="font-bold mt-4">
-                            Tx Completed: {(tx.hash as string).substring(0, 6)}
+                            Tx Completed:{" "}
+                            {(tx.transactionHash as string).substring(0, 6)}
                             ...
-                            {(tx.hash as string).substring(
-                                tx.hash.length - 6,
-                                tx.hash.length
+                            {(tx.transactionHash as string).substring(
+                                tx.transactionHash.length - 6,
+                                tx.transactionHash.length
                             )}
                         </p>
                     )}
