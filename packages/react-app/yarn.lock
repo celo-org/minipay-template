@@ -1726,9 +1726,7 @@ atomic-sleep@^1.0.0:
   integrity sha512-kNOjDqAh7px0XWNI+4QbzoiR/nTkHAWNud2uvnJquD1/x5a7EQZMJT0AczqK0Qn67oY/TTQ1LbUKajZpp3I9tQ==
 
 autoprefixer@^10.4.14:
-  version "10.4.14"
-  resolved "https://registry.yarnpkg.com/autoprefixer/-/autoprefixer-10.4.14.tgz#e28d49902f8e759dd25b153264e862df2705f79d"
-  integrity sha512-FQzyfOsTlwVzjHxKEqRIAdJx9niO6VCBCoEwax/VLSoQF29ggECcPuBqUMZ+u8jCZOPSy8b8/8KnuFbp0SaFZQ==
+  version "10.4.19"
   dependencies:
     browserslist "^4.21.5"
     caniuse-lite "^1.0.30001464"
