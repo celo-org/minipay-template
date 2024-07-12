@@ -10,16 +10,16 @@
     },
     "dependencies": {
         "@celo/abis": "^10.0.0",
-        "@celo/rainbowkit-celo": "1.1.1",
         "@headlessui/react": "^1.7.14",
         "@heroicons/react": "^2.0.18",
-        "@rainbow-me/rainbowkit": "^1.0.2",
-        "@wagmi/connectors": "^3.1.10",
+        "@rainbow-me/rainbowkit": "^2.0.2",
+        "@tanstack/react-query": "^5.28.6",
+        "@wagmi/connectors": "4.1.18",
         "next": "^13.4.2",
         "react": "18.2.0",
         "react-dom": "18.2.0",
-        "viem": "^2.7.19",
-        "wagmi": "^2.5.7"
+        "viem": "^2.8.18",
+        "wagmi": "^2.5.12"
     },
     "devDependencies": {
         "@types/node": "^20.2.1",
