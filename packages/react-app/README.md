@@ -25,7 +25,6 @@ yarn react-dev
 
 -   [Next.js](https://nextjs.org/) app framework
 -   [TailwindCSS](https://tailwindcss.com/) for UI
--   [rainbowkit-celo](https://www.npmjs.com/package/@celo/rainbowkit-celo), a plugin to help rainbowkit developers support the CELO protocol faster.
 
 ## Architecture
 
