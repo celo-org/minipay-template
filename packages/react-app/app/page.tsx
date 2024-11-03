@@ -1,3 +1,5 @@
+"use client";
+
 /* eslint-disable react-hooks/exhaustive-deps */
 import PrimaryButton from "@/components/Button";
 import { useWeb3 } from "@/contexts/useWeb3";
