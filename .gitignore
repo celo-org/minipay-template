@@ -39,3 +39,9 @@ nb-configuration.xml
 *.swp
 
 PROPOSAL.md
+
+# Ignore lock files
+yarn.lock
+package-lock.json
+packages/*/yarn.lock
+packages/*/package-lock.json
