@@ -7991,9 +7991,9 @@ solc@0.7.3:
     tmp "0.0.33"
 
 solidity-coverage@^0.8.1:
-  version "0.8.7"
-  resolved "https://registry.yarnpkg.com/solidity-coverage/-/solidity-coverage-0.8.7.tgz#fa8809fdd3321c357609fd20f6888878efc0f0fc"
-  integrity sha512-RzcPuNsIqVGq5F8rjQZPdI2EVdsRU7w2f1Uk1UY567n9eNcg5LSEQ3Q1WFoy9bi/2AD5SYbYK9SS/Nwh2oYbNw==
+  version "0.8.13"
+  resolved "https://registry.yarnpkg.com/solidity-coverage/-/solidity-coverage-0.8.13.tgz#8eeada2e82ae19d25568368aa782a2baad0e0ce7"
+  integrity sha512-RiBoI+kF94V3Rv0+iwOj3HQVSqNzA9qm/qDP1ZDXK5IX0Cvho1qiz8hAXTsAo6KOIUeP73jfscq0KlLqVxzGWA==
   dependencies:
     "@ethersproject/abi" "^5.0.9"
     "@solidity-parser/parser" "^0.18.0"
@@ -8005,7 +8005,7 @@ solidity-coverage@^0.8.1:
     global-modules "^2.0.0"
     globby "^10.0.1"
     jsonschema "^1.2.4"
-    lodash "^4.17.15"
+    lodash "^4.17.21"
     mocha "^10.2.0"
     node-emoji "^1.10.0"
     pify "^4.0.1"
