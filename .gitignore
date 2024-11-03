@@ -41,7 +41,6 @@ nb-configuration.xml
 PROPOSAL.md
 
 # Ignore lock files
-yarn.lock
-package-lock.json
-packages/*/yarn.lock
-packages/*/package-lock.json
+*.lock
+packages/*/*.lock
+
