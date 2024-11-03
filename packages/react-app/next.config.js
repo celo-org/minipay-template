@@ -7,6 +7,9 @@ const nextConfig = {
     };
     return config;
   },
+  images: {
+    domains: ['cdn-production-opera-website.operacdn.com'],
+  },
 };
 
 module.exports = nextConfig;

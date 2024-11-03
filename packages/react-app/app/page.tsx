@@ -1,7 +1,8 @@
 "use client";
 
 /* eslint-disable react-hooks/exhaustive-deps */
-import PrimaryButton from "@/components/Button";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { useWeb3 } from "@/contexts/useWeb3";
 import Image from "next/image";
 import { useEffect, useState } from "react";
@@ -80,7 +81,7 @@ export default function Home() {
         }
     }
 
-    
+
 
     return (
         <div className="flex flex-col justify-center items-center">
@@ -122,14 +123,14 @@ export default function Home() {
                         </p>
                     )}
                     <div className="w-full px-3 mt-7">
-                        <input
+                        <Input
                             type="number"
                             value={amountToSend}
                             onChange={(e) => setAmountToSend(e.target.value)}
                             placeholder="Enter amount to send"
                             className="border rounded-md px-3 py-2 w-full mb-3"
-                        />
-                        <PrimaryButton
+                        ></Input>
+                        <Button
                             loading={signingLoading}
                             onClick={sendingCUSD}
                             title={`Send ${amountToSend} cUSD to your own address`}
@@ -138,7 +139,7 @@ export default function Home() {
                     </div>
 
                     <div className="w-full px-3 mt-6">
-                        <PrimaryButton
+                        <Button
                             loading={cUSDLoading}
                             onClick={signMessage}
                             title="Sign a Message"
@@ -152,6 +153,14 @@ export default function Home() {
                         </div>
                     )}
 
+                    <div className="w-full px-3 mt-5">
+                        <Button
+                            loading={nftLoading}
+                            onClick={mintNFT}
+                            title="Mint Minipay NFT"
+                            widthFull
+                        />
+                    </div>
 
                     {userOwnedNFTs.length > 0 ? (
                         <div className="flex flex-col items-center justify-center w-full mt-7">
@@ -177,14 +186,6 @@ export default function Home() {
                         <div className="mt-5">You do not have any NFTs yet</div>
                     )}
 
-                    <div className="w-full px-3 mt-5">
-                        <PrimaryButton
-                            loading={nftLoading}
-                            onClick={mintNFT}
-                            title="Mint Minipay NFT"
-                            widthFull
-                        />
-                    </div>
                 </>
             )}
         </div>
