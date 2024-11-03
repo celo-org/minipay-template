@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@celo/abis": "^11.0.0",
-    "@celo/rainbowkit-celo": "1.2.0",
+    "@celo/rainbowkit-celo": "1.2.1",
     "@headlessui/react": "^2.1.2",
     "@heroicons/react": "^2.1.5",
     "@rainbow-me/rainbowkit": "^2.1.3",
