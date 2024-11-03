@@ -39,3 +39,8 @@ nb-configuration.xml
 *.swp
 
 PROPOSAL.md
+
+# Ignore lock files
+*.lock
+packages/*/*.lock
+
