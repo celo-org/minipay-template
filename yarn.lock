@@ -1236,9 +1236,9 @@
     ordinal "^1.0.3"
 
 "@nomicfoundation/hardhat-ethers@^3.0.5":
-  version "3.0.5"
-  resolved "https://registry.yarnpkg.com/@nomicfoundation/hardhat-ethers/-/hardhat-ethers-3.0.5.tgz#0422c2123dec7c42e7fb2be8e1691f1d9708db56"
-  integrity sha512-RNFe8OtbZK6Ila9kIlHp0+S80/0Bu/3p41HUpaRIoHLm6X3WekTd83vob3rE54Duufu1edCiBDxspBzi2rxHHw==
+  version "3.0.8"
+  resolved "https://registry.yarnpkg.com/@nomicfoundation/hardhat-ethers/-/hardhat-ethers-3.0.8.tgz#af078f566373abeb77e11cbe69fe3dd47f8bfc27"
+  integrity sha512-zhOZ4hdRORls31DTOqg+GmEZM0ujly8GGIuRY7t7szEk2zW/arY1qDug/py8AEktT00v5K+b6RvbVog+va51IA==
   dependencies:
     debug "^4.1.1"
     lodash.isequal "^4.5.0"
