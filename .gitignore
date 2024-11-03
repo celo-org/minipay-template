@@ -40,7 +40,5 @@ nb-configuration.xml
 
 PROPOSAL.md
 
-# Ignore lock files
-*.lock
-packages/*/*.lock
+
 
