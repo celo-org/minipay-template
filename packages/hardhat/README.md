@@ -42,7 +42,7 @@ For Alfajores (Testnet) Verification
 npx hardhat verify <CONTRACT_ADDRESS>  <CONSTRUCTOR_ARGS> --network alfajores
 ```
 
-For the Lock.sol contract that could look like this:
+For the MiniPay.sol contract that could look like this:
 
 ```bash
 npx hardhat verify 0xF9316Ce3E661D704000bCDDA925766Bf7F09fF5B 0x1724707c52de2fa65ad9c586b5d38507f52D3c06  --network alfajores
