@@ -225,6 +225,20 @@ Check [nextjs docs](https://nextjs.org/docs) to learn more about it.
 
 Check [hardhat docs](https://hardhat.org/hardhat-runner/docs/getting-started) to learn more about it.
 
+## Token Decimals Reference
+
+The template's `sendCUSD` function uses `parseEther` (18 decimals), which is correct for cUSD. **USDT and USDC on Celo use 6 decimals.** Using `parseEther` for USDT would send 1,000,000,000,000× the intended amount.
+
+The `sendUSDT` function in `useWeb3.ts` uses `parseUnits(amount, 6)` for this reason.
+
+| Token | Mainnet Address | Decimals | Helper |
+|-------|----------------|----------|--------|
+| cUSD  | `0x765DE816845861e75A25fCA122bb6898B8B1282a` | 18 | `parseEther(amount)` |
+| USDC  | `0xcebA9300f2b948710d2653dD7B07f33A8B32118C` | 6  | `parseUnits(amount, 6)` |
+| USDT  | `0x48065fbBE25f71C9282ddf5e1cD6D6A887483D5e` | 6  | `parseUnits(amount, 6)` |
+
+> **Note:** USDT does not have a canonical Alfajores testnet deployment. Use cUSD for testnet flows and switch to the mainnet address above when deploying to Celo mainnet.
+
 ## Support
 
 Join the Celo Discord server at <https://chat.celo.org>. Reach out on the dedicated repo channel [here](https://discord.com/channels/600834479145353243/941003424298856448).
