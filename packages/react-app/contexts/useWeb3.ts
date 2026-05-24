@@ -8,6 +8,7 @@ import {
     getContract,
     http,
     parseEther,
+    parseUnits,
     stringToHex,
 } from "viem";
 import { celoAlfajores } from "viem/chains";
@@ -130,10 +131,50 @@ export const useWeb3 = () => {
         return res;
     };
 
+    /**
+     * Sends USDT on Celo to the given address.
+     *
+     * USDT on Celo uses 6 decimals — this function uses parseUnits(amount, 6).
+     * Do NOT use parseEther here: it assumes 18 decimals and would send
+     * 1,000,000,000,000x the intended amount.
+     *
+     * Testnet USDT (Alfajores): no canonical address — use cUSD for testnet flows.
+     * Mainnet USDT: 0x48065fbBE25f71C9282ddf5e1cD6D6A887483D5e
+     */
+    const sendUSDT = async (to: string, amount: string) => {
+        // Mainnet only — USDT does not have a canonical Alfajores deployment
+        const USDT_MAINNET = "0x48065fbBE25f71C9282ddf5e1cD6D6A887483D5e";
+
+        let walletClient = createWalletClient({
+            transport: custom(window.ethereum),
+            chain: celoAlfajores, // switch to `celo` from viem/chains for mainnet
+        });
+
+        let [address] = await walletClient.getAddresses();
+
+        // USDT uses 6 decimals on Celo — parseUnits, not parseEther
+        const amountInUnits = parseUnits(amount, 6);
+
+        const tx = await walletClient.writeContract({
+            address: USDT_MAINNET,
+            abi: StableTokenABI.abi,
+            functionName: "transfer",
+            account: address,
+            args: [to, amountInUnits],
+        });
+
+        const receipt = await publicClient.waitForTransactionReceipt({
+            hash: tx,
+        });
+
+        return receipt;
+    };
+
     return {
         address,
         getUserAddress,
         sendCUSD,
+        sendUSDT,
         mintMinipayNFT,
         getNFTs,
         signTransaction,
